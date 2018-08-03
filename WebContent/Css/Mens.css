@@ -1,0 +1,147 @@
+@charset "ISO-8859-1";
+
+.modal-title{
+font-family: 'Oswald', sans-serif;
+font-size:20px;
+}
+
+body{
+margin:0px;
+padding:0px;
+
+}
+.container-men {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .8s ease;
+  background-color: #dc3545;
+}
+.card-text{
+font-family: 'Oswald', sans-serif;
+
+}
+
+.container-men:hover .overlay {
+  opacity: 0.9;
+  
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 40%;
+  text-decoration:none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.lblogo{
+color:#563d7c;
+font-size:30px;	
+}
+.card-title{
+font-family: 'Oswald', sans-serif;
+font-size:23px;
+text-align:center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.lblogo{
+color:#563d7c;
+font-size:25px;
+}
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+nav{
+height:100px;
+}
+
+.jumbotron{
+margin-top:100px;
+background:linear-gradient(rgba(60, 65, 73,0.7),rgba(60, 65, 73,0.7)),url(https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) repeat fixed 100%;
+background-size:cover;
+background-position:center;
+background-repeat:none;
+height:600px;
+color:white;
+}
+
+.container_men-items{
+height:500px;
+width:1200px;
+margin-top:70px;
+}
+
+#status1{
+font-family: 'Oswald', sans-serif; 
+font-size:90px;
+
+}
+
+#lbHeader{
+color:#dc3545;
+font-size:30px;
+margin-left:20px;
+margin-bottom:20px;
+}
+#color-boder{
+height:20px;
+width:20px;
+background-color:green;
+
+}
+ul>li a:hover{
+color:green;
+}
+
+ul>li a{
+color:black;
+}
+.container-collections{
+position: fixed;
+margin-left:10px;
+margin-right:10px;
+}
+} 
+.jumbotron:hover{
+transaction:all 1s ease-in-out;
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+.list-group-flush .list-group-item:hover{
+background-color:#e3e9ef;
+
+}
