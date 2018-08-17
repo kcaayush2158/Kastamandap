@@ -30,7 +30,12 @@
 </style>
 <body>
 
+<% 
+HttpSession session1 = request.getSession(false);
 
+String username = (String)request.getParameter("username");
+out.println(username);
+%>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="../index.jsp"><font class="lblogo">Kasthamandap</font></a><br>
@@ -67,9 +72,17 @@
        My Account
     </button>
     <div class="dropdown-menu">
-   <center>
+<% 
+HttpSession sessions = request.getSession(false);
+String username1 = (String)request.getParameter("username");
+out.println(username1);
+if(username==null){
+ 
+}
 
-          </center><br>
+
+
+;%>
       <a class="dropdown-item" href="#">Setting</a>
 
      <a class="dropdown-item" href="Logout.jsp">Logout</a>
@@ -117,10 +130,10 @@
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
-                  <img class="card-img-top" src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" style=" transition: transform .2s;" alt="Card image cap">
+               <div class="card " style="width: 18rem;" id="scroll" >
+                  <img class="card-img-top" src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" >
                      <div class="card-body">
-                       <h5 class="card-title">OLIVER · MENS WATCH · ROSE GOLD WITH BROWN LEATHER</h5>
+                       <h5 class="card-title">OLIVER.ROSE GOLD WITH BROWN LEATHER</h5>
                        <form action="post">
                        <input type="hidden" name="productquantity" value="1">
                        <input type="hidden" name="productprice" value="2000">
@@ -177,12 +190,15 @@ The Danish watch designs are all created in house and the key elements are simpl
            </div>
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://www.rvca.com/media/transfer/img/mlvv01cu_chum_tpo_copy_1.jpg" height="300"alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">CHUM KNIT SWEATER</h5>
                        <p class="card-text"><br><h3>Rs 5200.00 </h3></p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                        
 
 
@@ -194,12 +210,15 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;"  id="scroll">
                    <img class="card-img-top" src="https://media.brixton.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/R/E/RESERVE-CHINO-PANT_04044_BLACK_01.jpg" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">RESERVE CHINO PANT</h5>
                        <p class="card-text"><br><h3>RS 4000.00</h3></p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
 
 
                     </div>
@@ -217,24 +236,30 @@ The Danish watch designs are all created in house and the key elements are simpl
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/09/02/goods-first-img/1510289167635872591.jpg" alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
            </div>
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtvyNqeZstgSskSEWuhOfHxcVMTwgNG3Q8hhxG7HU0KQGIo6ItQ" height="300"alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -242,12 +267,15 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;"  id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eMtt_j1jwoDCGRpB4LGj2opd0SVnaTSBXRtyimCH0I30TpL6" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -260,24 +288,30 @@ The Danish watch designs are all created in house and the key elements are simpl
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/09/02/goods-first-img/1510289167635872591.jpg" alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
            </div>
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtvyNqeZstgSskSEWuhOfHxcVMTwgNG3Q8hhxG7HU0KQGIo6ItQ" height="300"alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                        
                     </div>
              </div>
@@ -286,12 +320,15 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;"  id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eMtt_j1jwoDCGRpB4LGj2opd0SVnaTSBXRtyimCH0I30TpL6" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -309,7 +346,7 @@ The Danish watch designs are all created in house and the key elements are simpl
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem; ">
+               <div class="card" style="width: 18rem; " id="scroll">
                   <img class="card-img-top" src="https://assets.academy.com/mgen/18/10347018.jpg" alt="Card image cap">
                      <div class="card-body">
                      <form action="" method="post">
@@ -378,7 +415,10 @@ The Danish watch designs are all created in house and the key elements are simpl
     <option>4</option>
   </select>
 </div></p>
-                       <a href="PurschaseItem.jsp" type="submit"class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <a href="PurschaseItem.jsp"  class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                        </form>
                     </div>
                </div>
@@ -392,6 +432,9 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">Hoody</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -405,6 +448,9 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -423,6 +469,9 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -435,6 +484,9 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -442,12 +494,15 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;" id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eMtt_j1jwoDCGRpB4LGj2opd0SVnaTSBXRtyimCH0I30TpL6" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -460,24 +515,30 @@ The Danish watch designs are all created in house and the key elements are simpl
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;" id="scroll">
                   <img class="card-img-top" src="https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/09/02/goods-first-img/1510289167635872591.jpg" alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
            </div>
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;" id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtvyNqeZstgSskSEWuhOfHxcVMTwgNG3Q8hhxG7HU0KQGIo6ItQ" height="300"alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -485,12 +546,15 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;" id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eMtt_j1jwoDCGRpB4LGj2opd0SVnaTSBXRtyimCH0I30TpL6" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -513,24 +577,30 @@ The Danish watch designs are all created in house and the key elements are simpl
       <div class="row" >
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem;" id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kPu0L6tA38k028xBP4vTw_8rA9Gt1vB4c-MAhKHrnY7XNywL" alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
            </div>
           <div class="col-lg-4">
              <div class="card-columns">
-               <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 18rem; id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8Yey1EUgRH9ljoiib8EBvBj8jdD0UDKCoSq98y7tHt_LDf1mY0Q" height="300"alt="Card image cap">
                      <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
              </div>
              </div>
@@ -538,12 +608,108 @@ The Danish watch designs are all created in house and the key elements are simpl
 
             <div class="col-lg-4">
               <div class="card-columns">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 18rem;" id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
                       <div class="card-body">
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+                       <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
                     </div>
                 </div>
               </div>
@@ -553,7 +719,27 @@ The Danish watch designs are all created in house and the key elements are simpl
      </div>
       
       </div>
-      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list"></div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+      
+                  <div class="col-lg-4">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;" id="scroll">
+                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zBhSfv0NiddZkFT1O8ZU1yT8XLqkut9dND41LFH94HCB7e66NQ" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">Jackets</h5>
+                       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+ <i class="material-icons">book</i> Details
+</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
+      
+      
+      </div>
     </div>
   </div>
 </div>
@@ -621,7 +807,7 @@ $(document).ready(function(){
 $(document).ready(function() {
 $("#MyModal").modal();
 });
-})
+
 </script>
 
 </html>

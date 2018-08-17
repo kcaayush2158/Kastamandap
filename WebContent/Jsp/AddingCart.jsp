@@ -3,7 +3,7 @@
 
 <jsp:useBean id="u" class="com.kastamandap.Emp"></jsp:useBean> 
 
-<jsp:setProperty property="*" name="c" />
+<jsp:setProperty property="*" name="u" />
 
 <%
 

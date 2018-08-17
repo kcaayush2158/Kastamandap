@@ -18,10 +18,17 @@ try{
 
     ResultSet rs = pst.executeQuery();                        
    if(rs.next()){
-      response.sendRedirect("index.jsp");
-      String username = request.getParameter("username");
-      String password = request.getParameter("lgpassword");
-      session.setAttribute("username",username);
+	   String username = request.getParameter("lgusername");
+	      HttpSession session1 = request.getSession();
+	      session.setAttribute("username", username);
+	          
+	      
+	      
+      response.sendRedirect("../index2.jsp");
+
+      System.out.print(username);
+
+
        System.out.println("loginSuccess");
      }else{
 	

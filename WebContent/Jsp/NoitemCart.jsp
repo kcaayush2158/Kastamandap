@@ -4,6 +4,14 @@
         <%@ page import="java.sql.*" %>
          <%@ page import="java.sql.DriverManager.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% 
+HttpSession session1= request.getSession(false);
+if(session1 != null){
+	System.out.println("working");
+}else{
+	response.sendRedirect("../index.jsp");
+}
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,6 +20,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <style>
+
 
 #container-cart{
 margin-left:100px;
@@ -53,8 +62,8 @@ margin-left:40px;
     </ul>
     <form class="form-inline my-2 my-lg-0">
             <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="Html/Signup.html"><button type="button" class="btn btn-danger btn-md"  href="Html/Signup.html">SignUp</button></a>
-          <a href="Html/Login.html"><button type="button" class="btn btn-warning btn-md" href="Html/Signup.html">Login</button></a>
+            <a href="../Html/Signup.html"><button type="button" class="btn btn-danger btn-md"  href="Html/Signup.html">SignUp</button></a>
+          <a href="../Html/Login.html"><button type="button" class="btn btn-warning btn-md" href="Html/Signup.html">Login</button></a>
 </div>
     </form>
   </div>
@@ -63,8 +72,15 @@ margin-left:40px;
 
 <div class="container" >]
 <center>Shopping bag is Empty</center>
-<imng src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/shopping_bag.png">
-<%@ include="/Html/Login.html" %>
+<center><img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/shopping_bag.png" style="margin-top:200px;"><br><br><h2>Shopping bag is Empty</h2><br><br>
+<button class="btn btn-primary" href="../index.jsp"><i class="material-icons">add</i>Continue Shopping</button>
+<button class="btn btn-success"><i class="material-icons">
+done_outline
+</i>Checkout</button>
+<br><br>
+Bag--Delivery--Payment
+</center>
+
 </div>
 
 

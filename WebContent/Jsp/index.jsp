@@ -165,12 +165,12 @@ transaction:all 1s ease-in-out;
            <div class="row">
                <font id="lbHeader" style="margin-top: 59px;">Top Wear</font>
             <ul style="margin-left: 60px; margin-bottom:20px;">
-              <li>T-shirt</li>
-              <li>Causel-Shirt</li>
-              <li>Formal-Shirt</li>
-              <li>Jackets</li>
-              <li>Blazars & coats</li>
-               <li>Suits</li>
+             <li> <a href="index.jsp">T-shirt</a></li>
+              <li><a href="index.jsp">Causel-Shirt</a></li>
+              <li><a href="index.jsp">Formal-Shirt</a></li>
+              <li><a href="index.jsp">Jackets</a></li>
+              <li><a href="index.jsp">Blazars & coats</a></li>
+               <li><a href="index.jsp">Suits</a></li>
             </ul>
             <br>
               <font id="lbHeader" style="margin-top: 59px;" >Bottom Wear</font>

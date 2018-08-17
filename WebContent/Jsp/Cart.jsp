@@ -118,8 +118,8 @@ while(resultSet.next())
 <h5>Hello world</h5>
 
 </div>
-<a href=""><button class="btn btn-primary">Continue Shopping</button></a>
-<a href=""><button class="btn btn-success">Checkout</button></a>
+<a href="index2.jsp"><button class="btn btn-primary">Continue Shopping</button></a>
+<a href="checkout.jsp"><button class="btn btn-success">Checkout</button></a>
 
 
 </body>

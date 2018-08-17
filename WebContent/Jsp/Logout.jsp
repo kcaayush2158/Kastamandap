@@ -19,15 +19,12 @@
 
 
 <% 
-
+String username = request.getParameter("lgusername");
+String username1 = request.getParameter("username");
 HttpSession sessions = request.getSession(false);
+sessions.invalidate();
 response.sendRedirect("../index.jsp");
-if(session==null || !request.isRequestedSessionIdValid() )
-{
-request.getRequestDispatcher("../index.jsp").forward(request, response);
-response.sendRedirect("../index.jsp");
-session.invalidate();
-}
+
 %>
 
 

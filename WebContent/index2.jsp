@@ -25,6 +25,9 @@
 <title>Kastamandap - Online Shopping Store</title>
 </head>
 <style>
+.nav-link{
+font-family:arial;
+}
 body{
   margin:0px;
   padding:0px;
@@ -60,9 +63,6 @@ body{
 .container-men:hover .overlay {
   opacity: 0.9;
   
-}
-.nav-item{
-font-family:arial;
 }
 
 .text {
@@ -463,7 +463,23 @@ margin-left:100px;
   
       </li>
           <li class="nav-item">
-        <a class="nav-link" href="Jsp/Mens.jsp">Men</a>
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Mens
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" href="/Kastamandap/JSP/Mens.jsp">All Catagory</a>
+          <a class="dropdown-item" href="#">Top Wear</a>
+           <a class="dropdown-item" href="#">Bottom Wear</a>
+          <a class="dropdown-item" href="#">Sport & Active Wear</a>
+                   <a class="dropdown-item" href="#">Innerwear & Sleepwear</a>
+                                     <a class="dropdown-item" href="#">Footwear</a>
+                                     <a class="dropdown-item" href="#">Watches and wearable</a>                  
+          <a class="dropdown-item" href="#">Accessories</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Women</a>
@@ -481,7 +497,11 @@ margin-left:100px;
     </ul>
     <form class="form-inline my-2 my-lg-0">
             <div class="btn-group" role="group" aria-label="Basic example">
-          <a href="Jsp/Product.jsp">  <button type="button" class="btn btn-light btn-md"> <i class="material-icons">add_shopping_cart</i>Cart
+        
+   
+          
+          <div class="btn-group">
+  <a href="Jsp/Product.jsp">  <button type="button" class="btn btn-light btn-md"> <i class="material-icons">add_shopping_cart</i>Cart
           
           <%
           Connection connection = MysqlConnection.Connector();
@@ -493,8 +513,32 @@ margin-left:100px;
           <%} %>
           
           </button></a>
-          
-          <a href="Html/Login.html"><button type="button" class="btn btn-warning btn-md" href="Html/Signup.html">Login</button></a>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+   Profile
+    </button>
+    <div class="dropdown-menu">
+<%
+
+  
+HttpSession session1 = request.getSession(false);
+String username = (String)session1.getAttribute("username");
+out.println("Welcome ," + username);
+
+      
+       %>
+
+       <br>
+       <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Order</a>
+            <a class="dropdown-item" href="#">Wish List</a>
+            <a class="dropdown-item" href="#">Setting</a>
+    <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="Jsp/Logout.jsp">Logout</a>
+    </div>
+  </div>
+</div>
 </div>
     </form>
   </div>
@@ -639,11 +683,11 @@ margin-left:100px;
 <div class="container-fluid">
 <div class="owl-carousel owl-theme">
      <div > 
-       <form action="Html/Login.html">
-          <img class="d-block img-fluid" src="https://dsw.scene7.com/is/image/DSWShoes/411006_410_ss_01?$colpg$" alt="First slide">
+       <form action="Jsp/NoitemCart.jsp">
+          <img class="d-block img-fluid" src="https://dsw.scene7.com/is/image/DSWShoes/411006_410_ss_01?$colpg$" alt="First slide" id="rellax">
            <br><br>
            <center> <br>
-               <h4 id="lbconverse">Converse</h4>
+               <h4 id="lbconverse" >Converse</h4>
                 </center><br>
                          <input type="hidden" name="productname" value="converse">
                          <input type="hidden" name="productprice" value="90000">
@@ -654,7 +698,7 @@ margin-left:100px;
            
       </div>
      <div>  
-      <form action="Html/Login.html">
+      <form action="Jsp/NoitemCart.jsp">
         <input class="d-block img-fluid"  type="image" value="grand" src="https://www.rvca.com/media/transfer/img/mlvv02se_seasons_grs_copy_1.jpg"> 
            <center> 
          <input type="hidden" name="productname" value="sweaters">
@@ -667,7 +711,7 @@ margin-left:100px;
              </form>
      </div> 
      <div>  
-      <form action="Html/Login.html">
+      <form action="Jsp/NoitemCart.jsp">
          <img class="d-block img-fluid" src="https://res-5.cloudinary.com/bestmade/image/upload/c_fit,h_600,q_100,w_600/v1502471648/170803_BMC_5pktPantNatural_0011_rd50of.png" alt="First slide" height="550">
            <br><br>
            <center> 
@@ -883,11 +927,17 @@ margin-left:100px;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js">
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js">
+window.sr = ScrollReveal();
+
+sr.reveal('#lbconverse', { duration: 3000 });
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="Javascript/owl.carousel.min.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.6.2/rellax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.6.2/rellax.min.js"></script>
 <script>var rellax = new Rellax('.rellax');</script>
 
 <script>
