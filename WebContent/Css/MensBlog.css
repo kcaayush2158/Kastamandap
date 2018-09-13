@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+.wrapper {
+  max-width:200px;
+  width:100%;
+}
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: block !important;
+}
+.card>p img :hover{
+	  transform: rotate(20deg);
+}
+
+.lblogo{
+color:#563d7c;
+font-size:30px;	
+}
+.nav-item{
+font-family:arial;
+}
+
+#container1{
+	height:800px;
+	font-family: 'Anton', sans-serif;
+	width:auto;
+	margin-top:30px;
+
+}
+
+#lblogo{
+color:#563d7c;
+font-size:30px;	
+}
+#lbDomore{
+	font-size:50px;
+	color:white;
+	margin-top:120px;
+	
+}

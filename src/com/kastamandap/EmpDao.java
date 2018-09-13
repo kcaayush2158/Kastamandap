@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.lang.Exception;
+import com.kastamandap.CartBean;
 
 public class EmpDao {
  
@@ -114,17 +115,17 @@ public static Emp getRecordById(int id) {
 	}
 	return u;
 }
-public static int savetocart(Emp u) {
+public static int savetocart(CartBean c) {
  int status = 0;
  try {
-	 String query="INSERT INTO cart2(productname,productprice,productquantity) VALUES(?,?,?)";
+	 String query="INSERT INTO cart2 (productname,productprice,productquantity,productsize) VALUES(?,?,?,?)";
 	 Connection con = MysqlConnection.Connector();
 	 PreparedStatement ps = con.prepareStatement(query);
-
-	 ps.setString(1, u.getProductname());
-	 ps.setString(2, u.getProductprice());
-	 ps.setInt(3, u.getProductquantity());
-		ps.executeQuery();
+	 ps.setString(1, c.getProductname());
+	 ps.setInt(2, c.getProductprice());
+	 ps.setInt(3, c.getProductquantity());
+	 ps.setString(4, c.getProductsize());
+     ps.executeUpdate();
  }catch(Exception ex) {
 	 System.out.println(ex);
  }

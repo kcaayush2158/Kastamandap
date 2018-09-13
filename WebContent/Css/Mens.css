@@ -22,6 +22,11 @@ padding:0px;
 
 }
 
+.lblogo{
+color:#563d7c;
+font-size:30px;	
+}
+
 
 .overlay {
   position: absolute;

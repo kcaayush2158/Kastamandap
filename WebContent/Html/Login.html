@@ -11,9 +11,56 @@
 
 <title>Online Shopping</title>
 <style>
+.lblogo{
+color:#563d7c;
+font-size:30px;	
+}
 .signin-container{
 margin-top:300px;
 margin-left:300px;
+}
+@media only screen and (max-width: 375px) {
+.signin-container{
+margin-top:80px;
+margin-left:15px;
+}
+#lbSignIn{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
+}
+#btnforgotPassword{
+  margin-left:30px;
+  margin-bottom:100px;
+}
+#btnSignIn{
+     margin-left:15px;
+}
+}
+
+@media only screen and (min-width: 399px ) and (max-width:768px){
+.signin-container{
+margin-top:100px;
+margin-left:25px;
+}
+#lbSignIn{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
+}
+
+
+}
+
+@media only screen and (min-width: 768px ) and (max-width:1200px){
+.signin-container{
+margin-top:200px;
+margin-left:25px;
+}
+#lbSignIn{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 40px;
+
+}
+
 }
 </style>
 
@@ -23,7 +70,7 @@ margin-left:300px;
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="../Jsp/index.jsp"><font class="lblogo">Kasthamandap</font></a><br>
+  <a class="navbar-brand" href="../index.jsp"><font class="lblogo">Khojeko Mart</font></a><br>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -59,7 +106,7 @@ margin-left:300px;
 </nav>
 <div class="container">
 <div class="signin-container">
-  <h1>Sign In to purchase your Order</h1><br>
+  <h1 id="lbSignIn">Sign In to purchase your Order</h1><br>
    <div class="col-xl-7">
    <form action="../Jsp/LoginRegister.jsp" method="post">
      <div class="form-group">
@@ -71,10 +118,12 @@ margin-left:300px;
         <input type="password" class="form-control" id="pwd" name="lgpassword" placeholder="Enter your password">
     </div>
     <br>
-     <a href="#"><button class="btn btn-success" >Sign In</button></a>
+
+     <a href="#"><button class="btn btn-success" style="float: left; " id="btnSignIn">Sign In</button></a>
      </form>
-    <a href="Signup.html"><button class="btn btn-danger" >Create an Account</button></a>
-    <button class="btn btn-warning" >Forgot password</button>
+    <a href="Signup.html"><button class="btn btn-danger" >Create an Account</button></a><br><br>
+    <button class="btn btn-link" id="btnforgotPassword" >Forgot password ???</button>
+
     <div class="fb-login-button" data-width="80" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
    </div>
 </div>

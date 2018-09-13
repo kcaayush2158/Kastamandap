@@ -15,31 +15,26 @@ try{
     PreparedStatement pst = conn.prepareStatement("Select username,password from signup where username=? and password=? ");           
     pst.setString(1,request.getParameter("lgusername"));
     pst.setString(2,request.getParameter("lgpassword"));
-
     ResultSet rs = pst.executeQuery();                        
-   if(rs.next()){
-	   String username = request.getParameter("lgusername");
+        if(rs.next())
+        {
+	      String username = request.getParameter("lgusername");
 	      HttpSession session1 = request.getSession();
-	      session.setAttribute("username", username);
-	          
-	      
-	      
-      response.sendRedirect("../index2.jsp");
-
-      System.out.print(username);
-
-
-       System.out.println("loginSuccess");
-     }else{
-	
-  request.getRequestDispatcher("../Html/Login.html").include(request,response);
-     
-	 out.println("<br><br><div class=\"alert alert-warning\"> Enter your username and password correctly</div><br><br>");
-     System.out.println("Login is not sucessful");
+	      session.setAttribute("username", username);   
+          response.sendRedirect("../index2.jsp");
+          System.out.print(username);
+          System.out.println("loginSuccess");
+         }
+        else
+         {
+          request.getRequestDispatcher("../Html/Login.html").include(request,response);
+	      out.println("<br><br><div class=\"alert alert-warning\"> Enter your username and password correctly</div><br><br>");
+          System.out.println("Login is not sucessful");
+         }
    
-   }
-   
-   }catch(Exception e){
+    }
+         catch(Exception e)
+{
 	System.out.println(e);
 }
 %>

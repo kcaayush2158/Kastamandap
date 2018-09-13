@@ -1,9 +1,10 @@
-<jsp:useBean id="u" class="com.kastamandap.Emp"></jsp:useBean> 
+
 <%@ page import="java.sql.*"%>
 <%@ page import="com.kastamandap.MysqlConnection" %>
-<%@ page import="com.kastamandap.Emp" %>
+<%@page import="com.kastamandap.EmpDao"%>  
+
 <%@page import="java.io.*,java.util.*,com.application.*"%>
- 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="/bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
@@ -20,25 +20,23 @@
     <link rel="stylesheet" href="Css/owl.theme.default.css">
     <link href="https://fonts.googleapis.com/css?family=Ropa+Sans" rel="stylesheet">
      <link rel="stylesheet" href="Css/Mens.css">
-   <title>Kastamandap - Online Shopping Store</title>
+   <title>Khojeko Mart-Online Shopping Store</title>
 </head>
-
-<style>
-
-
-
-</style>
 <body>
 
 <% 
 HttpSession session1 = request.getSession(false);
-
 String username = (String)request.getParameter("username");
 out.println(username);
+if(username==null){
+	response.sendRedirect("Men.jsp");
+}else{
+    response.sendRedirect("Mens.jsp");
+}
 %>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="../index.jsp"><font class="lblogo">Kasthamandap</font></a><br>
+  <a class="navbar-brand" href="../index.jsp"><font id="lblogo">Khojeko Mart</font></a><br>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,13 +44,14 @@ out.println(username);
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+             <a class="nav-link" href="Mens.jsp">Home</a>
+      </li>
       <li class="nav-item active">
-   <a class="nav-link" href="#">Mens</a>
-  
+      
+         <a class="nav-link" href="Mens.jsp">Mens</a>
       </li>
-      <li class="nav-item">
-     
-      </li>
+
        <li class="nav-item">
         <a class="nav-link" href="#">Kids</a>
       </li>
@@ -72,19 +71,8 @@ out.println(username);
        My Account
     </button>
     <div class="dropdown-menu">
-<% 
-HttpSession sessions = request.getSession(false);
-String username1 = (String)request.getParameter("username");
-out.println(username1);
-if(username==null){
- 
-}
 
-
-
-;%>
       <a class="dropdown-item" href="#">Setting</a>
-
      <a class="dropdown-item" href="Logout.jsp">Logout</a>
     </div>
   </div>
@@ -93,102 +81,99 @@ if(username==null){
     </form>
   </div>
 </nav>
-     <br><br><br> <br><br><br>
+     <br><br><br> <br><br><br>    
 <div class="container-fluid" >
-    <div class="row">
-        <div class="col-3" style="">
-        
+
+
+<div class="col-3" >
+       
+        <h3> Top Wear</h3>
            <div class="list-group " id="list-tab" role="tablist" >
               <a class="list-group-item d-flex justify-content-between align-items-center active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">New   <span class="badge badge-primary badge-pill">14</span> </a>
               <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Jacket</a>
-                <div class="dropdown">
-          <a class="list-group-item list-group-item-action dropdown-toggle" id="list-profile-list" data-toggle="dropdown" href="#list-profile" aria-expanded="summer">Summer    
-       
- 
-        <i class="glyphicon glyphicon-option-vertical"></i>
-      
-</a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Action</a></li>
-        <li><a href="#">Another action</a></li>
-    </ul>
-</div>
-
+               <div class="dropdown">
+                 <a class="list-group-item list-group-item-action dropdown-toggle" id="list-profile-list" data-toggle="dropdown" href="#list-profile" aria-expanded="summer">Summer    
+                   <i class="glyphicon glyphicon-option-vertical"></i>
+                 </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                   </ul>
+               </div>
               <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Pants</a>
               <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Watch</a>
           </div>
-          
-
-       </div>
        
+      </div>
+
+ <!-- New Collections -->
   <div class="col-9" >
     <div class="tab-content" id="nav-tabContent" >
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" >
-      
-              <div class="col-lg-12">
-
-      <div class="row" >
-          <div class="col-lg-4">
-             <div class="card-columns">
-               <div class="card " style="width: 18rem;" id="scroll" >
-                  <img class="card-img-top" src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" >
-                     <div class="card-body">
-                       <h5 class="card-title">OLIVER.ROSE GOLD WITH BROWN LEATHER</h5>
-                       <form action="post">
-                       <input type="hidden" name="productquantity" value="1">
-                       <input type="hidden" name="productprice" value="2000">
-                       <input type="hidden" name="productname" value="OLIVER · MENS WATCH · ROSE GOLD WITH BROWN LEATHER">
-                       
-                       <p class="card-text"><h3>200$</h3></p>
-        
-                       <a href="../Jsp/AddingCart.jsp" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+      <!-------------------------------------------------- Row 1 ------------------------------------>
+        <div class="col-lg-12">
+          <div class="row" >
+             <div class="col-lg-3 col-sm-12">
+               <div class="card-columns">
+                 <div class="card " style="width: 18rem;" id="scroll" >
+                    <img class="card-img-top" src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" >
+                      <div class="card-body">
+                         <h5 class="card-title">OLIVER. ROSE GOLD WITH BROWN LEATHER</h5>
+                          <form action ="../Jsp/AddingCart.jsp" method="post">
+                          
+                          
+                          <input type="hidden" name="productprice" value="2000">
+                          <input type="hidden" name="productname" value=" ROSE GOLD WITH BROWN LEATHER">
+                          <input type="hidden" name="productquantity" value="4">
+                          <input type="hidden" name="productsize" value="XL">
+                          <p class="card-text"><h3>200$</h3></p>
+                          <button class="btn btn-success" style="float: left;"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
+                            <button type="submit"  value="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
+                            <i class="material-icons">book</i> Details
+                            </button>
                        </form>
-                        <!-- Button trigger modal -->
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
- <i class="material-icons">book</i> Details
-</button>
-                       <!--------------------------------------- Modal---------------------------------------------- -->
-<div class="modal fade" id="watch" tabindex="-1" role="dialog" aria-labelledby="watch" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle" >Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-     <center><img src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" height=200></center>
-    <br> 
-    Name:ROSE GOLD WITH BROWN LEATHER<br>
-    Price:2000<br>
-    Made in Denmark<br>
-    Brand: OLIVER <br>
-    Available colors: Red,Green,Blue
-     <hr>
-      A unique watch with an elegant touch. Rose gold case with blue hands and a brown leather strap - a watch that everyone will notice and envy. 
-<br>
+                    
 
-Limited lifetime warranty
-Lars Larsen Watches are celebrating the Nordic high standards by taking all production in-house and offering the owners of a Lars Larsen watch Limited lifetime warranty.
-<br>
-Danish Design ~ Made in Denmark
-The Danish watch designs are all created in house and the key elements are simple and minimalistic. The watches are all assembled, tested and shipped out from Denmark.
-<br>
-<hr>
+      <!------------------------------------------------------ Modal 1---------------------------------------------- -->
+  <div class="modal fade" id="watch" tabindex="-1" role="dialog" aria-labelledby="watch" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle" >Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+      <div class="modal-body">
+        <center><img src="https://www.larsenwatches.com/media/catalog/product/cache/3/image/1200x1200/17f82f742ffe127f42dca9de82fb58b1/1/4/147rwbl_lw47_mens-watch-rose-gold-white-dial-vintage-leather.png" height=200></center>
+      <br> 
+         Name:ROSE GOLD WITH BROWN LEATHER<br>
+         Price:2000<br>
+         Made in Denmark<br>
+         Brand: OLIVER <br>
+         Available colors: Red,Green,Blue
+         <hr>
+         A unique watch with an elegant touch. Rose gold case with blue hands and a brown leather strap - a watch that everyone will notice and envy. <br> 
+         Limited lifetime warranty
+         Lars Larsen Watches are celebrating the Nordic high standards by taking all production in-house and offering the owners of a Lars Larsen watch Limited lifetime warranty.<br>
+         Danish Design ~ Made in Denmark
+         The Danish watch designs are all created in house and the key elements are simple and minimalistic. The watches are all assembled, tested and shipped out from Denmark.<br>
+        <hr>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="material-icons">clear</i>Close</button>
-
       </div>
     </div>
   </div>
 </div>
-                    </div>
-             </div>
-             </div>
-           </div>
-          <div class="col-lg-4">
+<!-- ----------------------------------------------------- -->
+                      </div>
+                   </div>
+                </div>
+              </div> <!-- Ended for col-lg responsive utility classs-->
+           
+           
+           <div class="col-lg-3">
              <div class="card-columns">
                <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://www.rvca.com/media/transfer/img/mlvv01cu_chum_tpo_copy_1.jpg" height="300"alt="Card image cap">
@@ -196,19 +181,13 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">CHUM KNIT SWEATER</h5>
                        <p class="card-text"><br><h3>Rs 5200.00 </h3></p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
-                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
- <i class="material-icons">book</i> Details
-</button>
-                       
-
-
-
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch"><i class="material-icons">book</i> Details</button>
                     </div>
-             </div>
+               </div>
              </div>
            </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="card-columns">
                 <div class="card" style="width: 18rem;"  id="scroll">
                    <img class="card-img-top" src="https://media.brixton.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/R/E/RESERVE-CHINO-PANT_04044_BLACK_01.jpg" alt="Card image cap">
@@ -216,25 +195,43 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">RESERVE CHINO PANT</h5>
                        <p class="card-text"><br><h3>RS 4000.00</h3></p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
-                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
- <i class="material-icons">book</i> Details
-</button>
-
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch"><i class="material-icons">book</i> Details</button>
+                    </div>
+                </div>
+              </div>
+           </div>
+           
+            <div class="col-lg-3">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;"  id="scroll">
+                  <img class="card-img-top" src="https://media.brixton.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/R/E/RESERVE-CHINO-PANT_04044_BLACK_01.jpg" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">RESERVE CHINO PANT</h5>
+                       <p class="card-text"><br><h3>RS 4000.00</h3></p>
+                       <form action="../Jsp/AddingCart.jsp" method="post">
+                          <input type="hidden" name="productprice" value="2000">
+                          <input type="hidden" name="productname" value="RESERVE CHINO PANT">
+                          <input type="hidden" name="productquantity" value="4">
+                          <input type="hidden" name="productsize" value="XL">
+                            <button class="btn btn-success" type="submit"><i class="material-icons">add_shopping_cart</i> Add to Cart</button>
+                       </form>
+                     
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch"><i class="material-icons">book</i> Details</button>
 
                     </div>
                 </div>
               </div>
            </div>
-           <!-- container  -->
+
      </div> 
-     </div>
+   </div>
       
       <!-- Row two -->
       
-                    <div class="col-lg-12">
+   <div class="col-lg-12">
 
       <div class="row" >
-          <div class="col-lg-4">
+          <div class="col-lg-3">
              <div class="card-columns">
                <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://gloimg.zafcdn.com/zaful/pdm-product-pic/Clothing/2017/09/02/goods-first-img/1510289167635872591.jpg" alt="Card image cap">
@@ -242,14 +239,12 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <h5 class="card-title">Jackets</h5>
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
-                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
- <i class="material-icons">book</i> Details
-</button>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch"><i class="material-icons">book</i> Details</button>
                     </div>
              </div>
              </div>
            </div>
-          <div class="col-lg-4">
+          <div class="col-lg-3">
              <div class="card-columns">
                <div class="card" style="width: 18rem;"  id="scroll">
                   <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTtvyNqeZstgSskSEWuhOfHxcVMTwgNG3Q8hhxG7HU0KQGIo6ItQ" height="300"alt="Card image cap">
@@ -258,14 +253,14 @@ The Danish watch designs are all created in house and the key elements are simpl
                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                        <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch">
- <i class="material-icons">book</i> Details
-</button>
+                         <i class="material-icons">book</i> Details
+                        </button>
                     </div>
              </div>
              </div>
            </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="card-columns">
                 <div class="card" style="width: 18rem;"  id="scroll">
                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eMtt_j1jwoDCGRpB4LGj2opd0SVnaTSBXRtyimCH0I30TpL6" alt="Card image cap">
@@ -280,7 +275,21 @@ The Danish watch designs are all created in house and the key elements are simpl
                 </div>
               </div>
            </div>
-           
+            <div class="col-lg-3">
+              <div class="card-columns">
+                <div class="card" style="width: 18rem;"  id="scroll">
+                  <img class="card-img-top" src="https://media.brixton.com/media/catalog/product/cache/4ab868458b71b776ed071afa6e64a965/R/E/RESERVE-CHINO-PANT_04044_BLACK_01.jpg" alt="Card image cap">
+                      <div class="card-body">
+                       <h5 class="card-title">RESERVE CHINO PANT</h5>
+                       <p class="card-text"><br><h3>RS 4000.00</h3></p>
+                       <a href="#" class="btn btn-success"><i class="material-icons">add_shopping_cart</i> Add to Cart</a>
+                       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#watch"><i class="material-icons">book</i> Details</button>
+
+                    </div>
+                </div>
+              </div>
+           </div>
+
      </div>
      </div>
      <!--  -->
@@ -333,7 +342,27 @@ The Danish watch designs are all created in house and the key elements are simpl
                 </div>
               </div>
            </div>
-           
+           <center>
+                      <nav aria-label="Page navigation example">
+  <ul class="pagination" style="margin-left: 450px; margin-top:100px;">
+   <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+
+                
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+</center>
      </div>
      </div>
       </div>
@@ -455,7 +484,7 @@ The Danish watch designs are all created in house and the key elements are simpl
                 </div>
               </div>
            </div>
-           
+
      </div>
      </div>
       
@@ -564,7 +593,25 @@ The Danish watch designs are all created in house and the key elements are simpl
      </div>    
       
       
-      
+                                       <nav aria-label="Page navigation example">
+  <ul class="pagination" style="margin-left: 450px; margin-top:100px;">
+   <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">6</a></li>
+
+                
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
       
       
       
@@ -745,7 +792,7 @@ The Danish watch designs are all created in house and the key elements are simpl
 </div>
 
 
-   </div> 
+
  
 
  
@@ -755,29 +802,6 @@ The Danish watch designs are all created in house and the key elements are simpl
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

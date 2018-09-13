@@ -11,18 +11,37 @@
 
 <title>Online Shopping</title>
 <style>
-
+.lblogo{
+color:#563d7c;
+font-size:30px;	
+}
 .signin-container{
 margin-top:150px;
 margin-left:150px;
 }
+
+@media only screen and (max-width: 600px) {
+  .signin-container{
+margin-top:150px;
+margin-left:14px;
+}
+
+}
+
+@media only screen and (min-width: 600px ) and (max-width:768px){
+  .signin-container{
+   margin-top:150px;
+      margin-left:14px;
+}
+}
+
 </style>
 
 </head>
 <body>
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="Kastamandap/Jsp/index.jsp"><font class="lblogo">Kasthamandap</font></a><br>
+  <a class="navbar-brand" href="Kastamandap/Jsp/index.jsp"><font class="lblogo">Khojeko Mart</font></a><br>
  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -67,7 +86,7 @@ margin-left:150px;
      <input type="text" class="form-control" id="eml" name="email" placeholder="Enter your Email" ><span id="emailvalidation"></span>
      </div>
        <div class="form-group">
-            <label for="username">Username:</label>
+            <label for="usr">Username:</label>
      <input type="text" class="form-control" id="usr" name="username" placeholder="Enter your Username" ><span id="usernamevalidation"></span>
      </div>
      <div class="form-group">
